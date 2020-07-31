@@ -8,7 +8,7 @@ ros::ServiceClient client;
 // This function calls the command_robot service to drive the robot in the specified direction
 void drive_robot(float lin_x, float ang_z)
 {
-    // TODO: Request a service and pass the velocities to it to drive the robot
+    // Request a service and pass the velocities to it to drive the robot
     if (lin_x != 0.0 || ang_z != 0.0) {
       ROS_INFO_STREAM("Driving toward white ball");
     }
@@ -31,7 +31,7 @@ void process_image_callback(const sensor_msgs::Image img)
     float lin_x = 0.0;
     float ang_z = 0.0;
     
-    // TODO: Loop through each pixel in the image and check if there's a bright white one
+    // Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camera
@@ -44,10 +44,8 @@ void process_image_callback(const sensor_msgs::Image img)
         lin_x = 0.1;
 
         if (column_position <= left_barrier) {
-          std::cout << "TURN LEFT" << std::endl;
           ang_z = 0.1;
         } else if (column_position >= right_barrier) {
-          std::cout << "TURN RIGHT" << std::endl;
           ang_z = -0.1;
         }
         break;
