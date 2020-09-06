@@ -6,10 +6,34 @@
 
   <!--AMCL node-->
   <node name="amcl" pkg="amcl" type="amcl" output="screen">
+
+    <!--Filter params-->
+    <!-- <param name="min_particles" value="50"/>
+    <param name="max_particles" value="2000"/> -->
+
+    <!--Laser params-->
+    <!-- <param name="laser_model_type" value="likelihood_field"/>
+    <param name="laser_likelihood_max_dist" value="2.0"/> -->
+
+    <!--Odom params-->
     <param name="odom_frame_id" value="odom"/>
     <param name="odom_model_type" value="diff-corrected"/>
     <param name="base_frame_id" value="robot_footprint"/>
-    <param name="global_frame_id" value="map"/>
+    <param name="global_frame_id" value="map"/>    
+    <param name="odom_alpha1" value="0.0005"/>
+	  <param name="odom_alpha2" value="0.0010"/>
+	  <param name="odom_alpha3" value="0.0005"/>
+	  <param name="odom_alpha4" value="0.0005"/>
+
+      <param name="update_min_d" value="0.005"/>
+    <param name="update_min_a" value="0.01"/>
+<!-- 
+    <param name="laser_model_type" value="likelihood_field"/>
+    <param name="laser_likelihood_max_dist" value="2.0"/> -->
+    <!-- <param name="laser_min_range" value="-1"/>
+    <param name="laser_max_range" value="-1"/> -->
+    <param name="initial_pose_a" value="-1.57079"/>
+
   </node>
 
   <!--Move base node-->
